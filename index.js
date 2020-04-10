@@ -4,7 +4,7 @@ import photoEditor from './index.vue'
 // tool.install  = Vue => Vue.component(tool.name, tool);
 const tool = {
   install: (Vue) => {
-    Vue.component('photo-editor', photoEditor)
+    Vue.component('Photos-editor', photoEditor)
   }
 }
 

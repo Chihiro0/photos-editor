@@ -226,16 +226,6 @@ export default {
             window.localStorage.setItem('resultImgBase64', imgBase64)
             this.loading = false
             this.$emit('toolFn', 'finish') // 传递状态
-            // this.$http.post('https://m.xiaoxxx.com/h5/dingding/upload', {
-            //   base64: imgBase64
-            // }).then((res) => {
-            //   if (res.data.status == 1) {
-            //     window.localStorage.setItem('resultImg', res.data.data.url)
-            //     // window.localStorage.setItem('resultImgBase64', imgBase64)
-            //     // this.loading = false
-            //     // this.$emit('toolFn', 'finish') // 传递状态
-            //   }
-            // })
           }
         })
       }
@@ -356,16 +346,16 @@ export default {
   transform: translate(-50%, -50%);
 }
 .item-remove {
-  width: 0.8rem;
+  width: 20px;
   position: absolute;
-  left: -0.66rem;
-  top: -0.66rem;
+  left: -15px;
+  top: -15px;
 }
 .item-change {
-  width: 0.8rem;
+  width: 20px;
   position: absolute;
-  right: -0.66rem;
-  bottom: -0.66rem;
+  right: -15px;
+  bottom: -15px;
 }
 canvas {
   width: 100%;
