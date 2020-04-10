@@ -1,0 +1,22 @@
+{
+  "name": "photos-editor",
+  "version": "1.0.1",
+  "description": "test",
+  "main": "index.js",
+  "scripts": {
+    "test": " "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Chihiro0/photo-editor.git"
+  },
+  "keywords": [
+    "photos-editor"
+  ],
+  "author": "wuji",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Chihiro0/photo-editor/issues"
+  },
+  "homepage": "https://github.com/Chihiro0/photo-editor#readme"
+}
