@@ -40,7 +40,7 @@
 </template>
 <script>
 export default {
-  name: 'photos-editor',
+  name: 'Photos-editor',
   data() {
     return {
       loading: false,
