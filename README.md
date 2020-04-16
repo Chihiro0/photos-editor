@@ -4,6 +4,7 @@
 
 >Photo editing and composition component based on Vue 2.x
 
+[demo](http://res.xiaoxxx.com/test/m.xiaoxxx.com/202004164675073017b73e92789029.png)
 
 ## Project setup
 ```
@@ -22,7 +23,7 @@ Vue.use(photosEditor)
 ## Example
 ```
 <!-- template -->
-<Photos-editor @toolFn="getState" :imgData="imgInfo" :bgData="bgImg"></Photos-editor>
+<Photos-editor @stateChange="getState" :imgData="imgInfo" :bgData="bgImg" :btnImg="btnUrl"></Photos-editor>
 <div @click="joinImg">join</div>
 
 <script>
@@ -32,7 +33,8 @@ export default {
       bgImg: require('Image path'),
       imgInfo: {
         img: ''
-      }
+      },
+      btnUrl: require('Image path')
     }
   },
   methods: {
@@ -58,6 +60,7 @@ Attribute|Description|Type
 :-:|:-:|:-:
 imgData|Inserted image|object
 bgData|Background picture|String
+btnUrl|button image|String
 
 ## Events
 events|Description|Return Value

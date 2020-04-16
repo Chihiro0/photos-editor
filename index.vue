@@ -1,8 +1,7 @@
 <template>
-  <div class="main">
-    <div class="save" @click="save">
-      保存
-      <!-- <img width="100%" src="../../public/images/save.png" alt=""> -->
+  <div class="Photos-editor">
+    <div class="save" @click="save" :style="'background-image: url(' + btnUrl + ')'">
+      {{btnText}}
     </div>
     <div ref="content" class="content" @touchstart="contentClick" :style="'background-image:url(' + bgImg + '); height:' + contentHeight + 'px;'">
       <div
@@ -60,7 +59,9 @@ export default {
       centreX: 0,
       centreY: 0,
       distance: 0, // 斜边长度
-      myc: null
+      myc: null,
+      btnText: '',
+      btnUrl: require('./images/save.png')
     }
   },
   props: {
@@ -69,6 +70,10 @@ export default {
       default: null
     },
     bgData: {
+      type: String,
+      default: null
+    },
+    btnImg: {
       type: String,
       default: null
     }
@@ -83,6 +88,9 @@ export default {
     bgData(newData) {
       // console.log(newData, oldData)
       this.bgImg = newData
+    },
+    btnImg(newData) {
+      this.btnUrl = newData || require('./images/save.png')
     }
   },
   methods: {
@@ -296,7 +304,7 @@ export default {
 }
 </script>
 <style scoped>
-.main {
+.Photos-editor {
   width: 100%;
   height: 100%;
   position: relative;
@@ -306,12 +314,16 @@ export default {
   background-repeat: no-repeat;
 }
 .save {
-  width: 1.44rem;
+  width: 80px;
+  height: 37px;
   position: absolute;
   top: 0.53rem;
   right: 0;
   z-index: 99999;
   color: #fff;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 .content {
   width: 100%;
