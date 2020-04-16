@@ -1,7 +1,7 @@
 {
   "name": "photos-editor",
   "version": "1.0.2",
-  "description": "test",
+  "description": "Photo editing and composition component based on Vue 2.x",
   "main": "index.js",
   "scripts": {
     "test": " "

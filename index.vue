@@ -107,7 +107,7 @@ export default {
           y: this.boxHeight / 2 - (img.height / 6),
           width: img.width / 3,
           height: img.height / 3,
-          img: this.images.img,
+          img: this.images.url,
           changeX: 0,
           changeY: 0,
           changeWidth: 0,
@@ -120,7 +120,7 @@ export default {
         this.imgObj.push(imgAttr)
         this.imgId += 1
       }
-      img.src = this.images.img
+      img.src = this.images.url
       
     },
     // 触摸图片
@@ -204,14 +204,14 @@ export default {
     // 保存
     save() {
       this.loading = true
-      this.$emit('toolFn', 'start') // 传递状态
+      // this.$emit('stateChange', 'start') // 传递状态
+      this.$emit('stateChange', {'state': 'start', 'url': ''}) // 传递状态
       this.$refs.content.style = 'display: none'
       this.myc = this.$refs.mycanvas
       let ctx = this.myc.getContext('2d')
-      console.log('1')
       let bgImg = new Image()
+      bgImg.setAttribute('crossOrigin', 'anonymous')
       bgImg.onload = () => {
-        console.log('2')
         ctx.drawImage(bgImg, 0, 0, 750, 1400)
         let copyImgObj = this.imgObj.slice(0)
         function compare (property) {
@@ -225,7 +225,8 @@ export default {
             let imgBase64 = this.myc.toDataURL("image/png")
             window.localStorage.setItem('resultImgBase64', imgBase64)
             this.loading = false
-            this.$emit('toolFn', 'finish') // 传递状态
+            // this.$emit('stateChange', 'finish') // 传递状态
+            this.$emit('stateChange', {'state': 'finish', 'url': imgBase64}) // 传递状态
           }
         })
       }
@@ -247,15 +248,14 @@ export default {
           let loopDraw = () => {
             new Promise((resolve) => {
               x = imgArr[index].x / (window.screen.width / 375) * 2
-              y = imgArr[index].y / (window.screen.width / 375) * 1.68
-              width = imgArr[index].width * 2
-              height = imgArr[index].height * 2
+              y = imgArr[index].y / (window.screen.width / 375) * 1.9
+              width = imgArr[index].width * 1.8
+              height = imgArr[index].height * 1.7
               // rotate = imgArr[index].rotate * 180 / Math.PI
               rotate = imgArr[index].oldRotate
               // console.log('x' + x + ' width' + width + '   ' + rotate)
-              console.log('deg = ' + rotate)
-              console.log('olddeg = ' + imgArr[index].oldRotate)
               let img = new Image()
+              img.setAttribute('crossOrigin', 'anonymous')
               img.onload = () => {
                 ctx.save()
                 ctx.translate(x + (width / 2), y + (height / 2));
